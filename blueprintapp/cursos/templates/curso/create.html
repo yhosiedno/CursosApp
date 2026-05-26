@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="card card-custom p-4">
+
+    <h2 class="mb-4">
+        Registrar Curso
+    </h2>
+
+    <form method="POST">
+
+        <div class="mb-3">
+
+            <label>Nombre</label>
+
+            <input type="text"
+                   name="nombre"
+                   class="form-control"
+                   required>
+
+        </div>
+
+        <div class="mb-3">
+
+            <label>Descripción</label>
+
+            <textarea name="descripcion"
+                      class="form-control"
+                      required></textarea>
+
+        </div>
+
+        <div class="mb-3">
+
+            <label>Estudiante</label>
+
+            <select name="estudiante_id"
+                    class="form-select">
+
+                {% for estudiante in estudiantes %}
+
+                <option value="{{ estudiante.id }}">
+
+                    {{ estudiante.nombre }}
+
+                </option>
+
+                {% endfor %}
+
+            </select>
+
+        </div>
+
+        <button class="btn btn-success">
+
+            Guardar
+
+        </button>
+
+        <a href="/cursos"
+           class="btn btn-secondary">
+
+           Volver
+
+        </a>
+
+    </form>
+
+</div>
+
+{% endblock %}

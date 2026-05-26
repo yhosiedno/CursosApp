@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="card card-custom p-4">
+
+    <div class="d-flex justify-content-between mb-3">
+
+        <h2>Gestión de Cursos</h2>
+
+        <a href="/cursos/create"
+           class="btn btn-primary">
+
+           <i class="bi bi-plus-circle"></i>
+           Nuevo Curso
+
+        </a>
+
+    </div>
+
+    <table class="table table-hover">
+
+        <thead class="table-dark">
+
+            <tr>
+
+                <th>ID</th>
+                <th>Curso</th>
+                <th>Descripción</th>
+                <th>Estudiante</th>
+                <th>Acciones</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            {% for curso in cursos %}
+
+            <tr>
+
+                <td>{{ curso.id }}</td>
+
+                <td>{{ curso.nombre }}</td>
+
+                <td>{{ curso.descripcion }}</td>
+
+                <td>{{ curso.estudiante.nombre }}</td>
+
+                <td>
+
+                    <a href="/cursos/edit/{{ curso.id }}"
+                       class="btn btn-warning btn-sm">
+
+                       <i class="bi bi-pencil"></i>
+
+                    </a>
+
+                    <a href="/cursos/delete/{{ curso.id }}"
+                       class="btn btn-danger btn-sm">
+
+                       <i class="bi bi-trash"></i>
+
+                    </a>
+
+                </td>
+
+            </tr>
+
+            {% endfor %}
+
+        </tbody>
+
+    </table>
+
+</div>
+
+{% endblock %}

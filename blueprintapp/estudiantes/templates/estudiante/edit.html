@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="card card-custom p-4">
+
+    <h2 class="mb-4">
+        Editar Estudiante
+    </h2>
+
+    <form method="POST">
+
+        <div class="mb-3">
+
+            <label>Nombre</label>
+
+            <input type="text"
+                   name="nombre"
+                   value="{{ estudiante.nombre }}"
+                   class="form-control"
+                   required>
+
+        </div>
+
+        <div class="mb-3">
+
+            <label>Correo</label>
+
+            <input type="email"
+                   name="correo"
+                   value="{{ estudiante.correo }}"
+                   class="form-control"
+                   required>
+
+        </div>
+
+        <div class="mb-3">
+
+            <label>Carrera</label>
+
+            <input type="text"
+                   name="carrera"
+                   value="{{ estudiante.carrera }}"
+                   class="form-control"
+                   required>
+
+        </div>
+
+        <button class="btn btn-primary">
+
+            Actualizar
+
+        </button>
+
+        <a href="/estudiantes"
+           class="btn btn-secondary">
+
+           Volver
+
+        </a>
+
+    </form>
+
+</div>
+
+{% endblock %}
